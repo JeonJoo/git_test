@@ -140,8 +140,9 @@ plt.grid()
 plt.show()    # 임계값 >>교차지점
 
 
-## roc_curve : FPR/ TPR
+## roc_curve : FPR/ TPR 비율
 fpr, tpr, th = roc_curve(y_test, proba[:,1])
+auc = roc_auc_score(y_test, proba[:, 1].reshape(-1, 1))
 plt.plot(fpr, tpr, label = "ROC")
 plt.plot([0,1], [0,1], label = "th:0.5")
 plt.title(auc)
